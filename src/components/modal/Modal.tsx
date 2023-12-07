@@ -1,28 +1,15 @@
-import { Fragment } from 'react'
+'use client'
+import { Dispatch, Fragment, SetStateAction } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
 interface props {
     title: string
     children: React.ReactNode
-    buttonText: string
     open: boolean
-    setOpen: () => void
-    submit: () => void
+    setOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export default function Modal({
-    submit,
-    open,
-    title,
-    children,
-    buttonText,
-    setOpen,
-}: props) {
-    const onSubmit = () => {
-        submit()
-        setOpen()
-    }
-
+export default function Modal({ open, title, children, setOpen }: props) {
     return (
         <Transition.Root show={open} as={Fragment}>
             <Dialog as='div' className='relative z-10' onClose={setOpen}>
@@ -60,15 +47,6 @@ export default function Modal({
                                         </Dialog.Title>
                                         <div className='mt-2'>{children}</div>
                                     </div>
-                                </div>
-                                <div className='mt-5 sm:mt-6'>
-                                    <button
-                                        type='button'
-                                        className='inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                                        onClick={onSubmit}
-                                    >
-                                        {buttonText}
-                                    </button>
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>
