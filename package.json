@@ -9,13 +9,16 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@clerk/nextjs": "^4.29.12",
+        "@clerk/nextjs": "^5.0.8",
+        "@emailme/emailme-js": "^1.1.1",
         "@headlessui/react": "^1.7.17",
+        "@supabase/supabase-js": "^2.43.1",
         "daisyui": "^4.6.1",
         "next": "14.0.2",
         "react": "^18",
         "react-dom": "^18",
-        "react-hot-toast": "^2.4.1"
+        "react-hot-toast": "^2.4.1",
+        "stripe": "^15.6.0"
     },
     "devDependencies": {
         "@types/node": "^20",
