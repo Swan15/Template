@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import ClientOnly from '@/components/ClientOnly'
 import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
 // import { ClerkProvider } from '@clerk/nextjs'
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
                 <NavBar />
                 <ClientOnly />
                 {children}
+                <Footer />
             </body>
         </html>
         // </ClerkProvider>
