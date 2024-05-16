@@ -24,17 +24,17 @@ export default function FoundersNote({ user }: { user: User | null }) {
                         </span>
                         {!user && (
                     <div className='flex gap-2 flex-col w-full justify-between'>
+                        <a
+                            href='https://x.com/alexanderaeswan'
+                            className='btn btn-sm btn-ghost'
+                        >
+                            Follow me on twitter
+                        </a>
                         {/* <SignUpButton mode='modal'> */}
                         <button className='btn btn-sm btn-primary'>
                             Sign up to contact me
                         </button>
                         {/* </SignUpButton> */}
-                        <a
-                            href='https://x.com/alexanderaeswan'
-                            className='btn btn-sm btn-secondary'
-                        >
-                            Follow me on twitter
-                        </a>
                     </div>
                 )}
                 {user && <ContactForm />}
