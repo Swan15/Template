@@ -1,11 +1,12 @@
-import Hero from './mainComponents/Hero'
-import PainPoints from './mainComponents/PainPoints'
-import Pricing from './mainComponents/Pricing'
-import SocialProof from './mainComponents/SocialProof'
-import FAQ from './mainComponents/FAQ'
-import SecondCTA from './mainComponents/SecondCTA'
-import FoundersNote from './mainComponents/FoundersNote'
-import Youtube from './mainComponents/Youtube'
+import Hero from './landingPage/Hero'
+import PainPoints from './landingPage/PainPoints'
+import Pricing from './landingPage/Pricing'
+import SocialProof from './landingPage/SocialProof'
+import FAQ from './landingPage/FAQ'
+import SecondCTA from './landingPage/SecondCTA'
+import FoundersNote from './landingPage/FoundersNote'
+import Youtube from './landingPage/Youtube'
+import HowTo from './landingPage/HowTo'
 // import { currentUser } from '@clerk/nextjs/server'
 
 export default async function Home() {
@@ -15,10 +16,15 @@ export default async function Home() {
         <main className='flex flex-col gap-8'>
             <Hero user={user} />
             <PainPoints />
-            <Pricing />
+            <SocialProof />
+            <HowTo />
+            <SocialProof />
             <Youtube />
             <SocialProof />
+            <Pricing />
+            <SocialProof />
             <FAQ />
+            <SocialProof />
             <SecondCTA />
             <FoundersNote user={user} />
             {/* https://www.indiehackers.com/post/my-step-by-step-guide-to-landing-pages-that-convert-9daefb2064 */}
