@@ -5,8 +5,8 @@ export default function PainPoints() {
                 <h3 className='font-urbanist text-tertiary-color text-4xl font-bold'>
                     Tired of <code>yarn create next-app</code>
                 </h3>
-                <div className='flex md:h-80 flex-col items-center justify-center gap-8 md:flex-row md:items-start md:gap-12'>
-                    <div className='w-full h-full max-w-md rounded-lg bg-rose-100/75 p-8 text-rose-700 md:p-12 '>
+                <div className='grid grid-cols-1 items-center justify-center gap-8 md:grid-cols-2 md:items-start md:gap-12'>
+                    <div className='h-full w-full max-w-md rounded-lg bg-rose-100/75 p-8 text-rose-700 md:p-12 '>
                         <h3 className='mb-4 text-lg font-bold'>
                             Building apps without a template
                         </h3>
@@ -68,7 +68,7 @@ export default function PainPoints() {
                             </li>
                         </ul>
                     </div>
-                    <div className='w-full h-full min-h-full rounded-lg bg-emerald-100/70 p-8 text-emerald-700 md:p-12'>
+                    <div className='h-full min-h-full w-full rounded-lg bg-emerald-100/70 p-8 text-emerald-700 md:p-12'>
                         <h3 className='mb-4 text-lg font-bold'>
                             Building apps with a template
                         </h3>

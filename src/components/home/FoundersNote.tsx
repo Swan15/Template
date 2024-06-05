@@ -1,7 +1,7 @@
-// import { SignUpButton } from '@clerk/nextjs'
-import { User } from '@clerk/nextjs/server'
 import Image from 'next/image'
 import ContactForm from './ContactForm'
+import Link from 'next/link'
+import { User } from '@supabase/supabase-js'
 
 export default function FoundersNote({ user }: { user: User | null }) {
     return (
@@ -23,24 +23,26 @@ export default function FoundersNote({ user }: { user: User | null }) {
                             I love building and built this as well.
                         </span>
                         {!user && (
-                    <div className='flex gap-2 flex-col w-full justify-between'>
-                        <a
-                            href='https://x.com/alexanderaeswan'
-                            className='btn btn-sm btn-ghost'
-                        >
-                            Follow me on twitter
-                        </a>
-                        {/* <SignUpButton mode='modal'> */}
-                        <button className='btn btn-sm btn-primary'>
-                            Sign up to contact me
-                        </button>
-                        {/* </SignUpButton> */}
-                    </div>
-                )}
-                {user && <ContactForm />}
+                            <div className='flex w-full flex-col justify-between gap-2'>
+                                <a
+                                    href='https://x.com/alexanderaeswan'
+                                    className='btn btn-ghost btn-sm'
+                                >
+                                    Follow me on twitter
+                                </a>
+                                {/* <SignUpButton mode='modal'> */}
+                                <Link
+                                    href='/sign-in'
+                                    className='btn btn-primary btn-sm'
+                                >
+                                    Sign up to contact me
+                                </Link>
+                                {/* </SignUpButton> */}
+                            </div>
+                        )}
+                        {user && <ContactForm />}
                     </div>
                 </div>
-                
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import { User } from '@clerk/nextjs/server'
+import { User } from '@supabase/supabase-js'
 import Image from 'next/image'
 
 export default function Hero({ user }: { user: User | null }) {
@@ -25,15 +25,7 @@ export default function Hero({ user }: { user: User | null }) {
             </p>
             <div className='flex justify-center gap-x-6'>
                 {!user && (
-                    <a
-                        href={
-                            process.env.NEXT_PUBLIC_BASE_PLAN_LINK +
-                            '?prefilled_promo_code=LAUNCH'
-                        }
-                        className='btn btn-lg w-36 min-w-max'
-                    >
-                        Get started
-                    </a>
+                    <a className='btn btn-lg w-36 min-w-max'>Get started</a>
                 )}
             </div>
             <div className='flex flex-col items-center justify-center gap-3 md:flex-row md:items-start'>

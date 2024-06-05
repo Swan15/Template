@@ -1,16 +1,14 @@
-import Hero from './landingPage/Hero'
-import PainPoints from './landingPage/PainPoints'
-import Pricing from './landingPage/Pricing'
-import SocialProof from './landingPage/SocialProof'
-import FAQ from './landingPage/FAQ'
-import SecondCTA from './landingPage/SecondCTA'
-import FoundersNote from './landingPage/FoundersNote'
-import Youtube from './landingPage/Youtube'
-import HowTo from './landingPage/HowTo'
-// import { currentUser } from '@clerk/nextjs/server'
+import Hero from '../components/home/Hero'
+import PainPoints from '../components/home/PainPoints'
+import Pricing from '../components/home/Pricing'
+import SocialProof from '../components/home/SocialProof'
+import FAQ from '../components/home/FAQ'
+import SecondCTA from '../components/home/SecondCTA'
+import FoundersNote from '../components/home/FoundersNote'
+import Youtube from '../components/home/Youtube'
+import HowTo from '../components/home/HowTo'
 
 export default async function Home() {
-    // const user = await currentUser()
     const user = null
     return (
         <main className='flex flex-col gap-8'>
@@ -27,7 +25,6 @@ export default async function Home() {
             <SocialProof />
             <SecondCTA />
             <FoundersNote user={user} />
-            {/* https://www.indiehackers.com/post/my-step-by-step-guide-to-landing-pages-that-convert-9daefb2064 */}
         </main>
     )
 }

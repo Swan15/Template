@@ -1,13 +1,16 @@
 'use server'
 
-import { currentUser } from '@clerk/nextjs/server'
+import { createClient } from '@/helpers/supabase/server'
 import { emailMe } from '@emailme/emailme-js'
 
 export async function contact(
     initialState: { error?: string; success?: string },
     formData: FormData
 ) {
-    const user = await currentUser()
+    const supabase = createClient()
+    const {
+        data: { user },
+    } = await supabase.auth.getUser()
     if (!user) {
         return { error: 'You must be logged in to contact us' }
     }
@@ -17,7 +20,7 @@ export async function contact(
     }
     const res = await emailMe(
         'Contact form submission',
-        `User: ${user.emailAddresses[0].emailAddress}\n\n${details}`
+        `User: ${user.email}\n\n${details}`
     )
     if (res.code !== 200) {
         return { error: res.message }

@@ -1,24 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project which uses Supabase, Tailwind CSS, DaisyUI and Stripe.
 
 ## Getting Started
 
-First, run the development server:
+First, copy your environment variables and fill them in:
 
 ```bash
-npm run dev
-# or
+cp .env.local.example .env.local
+```
+
+Then, download the NPM packages
+
+```bash
+yarn
+```
+
+Then, run the server
+
+```bash
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
@@ -35,8 +39,35 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-Todo:
+## Additional requirements
 
-1. Add supabase
-2. add clerk
-3. Add daisyui
+To get database types
+
+```bash
+
+supabase login
+
+supabase gen types typescript --project-id your-project-id > src/database.types.ts
+```
+
+You will need to change in supabase the 'Confirm signup' and 'Magic Link' emails to the following
+
+```html
+<h2>Confirm your signup</h2>
+
+<p>Follow this link to confirm your user:</p>
+<p><a href="{{ .ConfirmationURL }}">Confirm your mail</a></p>
+<p>Or you can enter this code if the link is not working: {{ .Token }}</p>
+```
+
+Make sure to add the URL configs in supabase to redirect to the following:
+"https://your-website.com/\*"
+"http://localhost:3000/\*"
+So you can test locally and it works.
+
+You can use your Gmail initially to handle the Supabase SMTP:
+Host: smtp.gmail.com
+Port: 465
+Username: you@gmail.com
+Password: (you'll need to setup an app password)
+https://support.google.com/mail/thread/205453566/how-to-generate-an-app-password?hl=en
